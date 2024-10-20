@@ -1,0 +1,338 @@
+/* imports and variables */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+:root {
+    --main-line-height: 1.6em;
+
+    --main-radius-small: 5px;
+    --main-radius-large: 10px;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --main-bg: #ffffff;
+        --main-text: #0a0a0a;
+
+        --main-grey-lighter: #f0f0f0;       
+        --main-grey-light: #e7e7e7;
+        --main-grey: #c2c0c0;
+        --main-grey-dark: #a1a1a1;
+        --main-grey-darker: #393939;
+
+        --main-blue: #1f88ea;
+        --main-blue-light: #deefff;
+        --main-blue-dark: #0759aa;
+
+        --main-red: #ea4a38;
+        --main-red-light: #ffe1e1;
+        --main-red-dark: #c71400;
+
+        --main-green: #1abb47;
+        --main-green-light: #d7fbe8;
+        --main-green-dark: #198638;
+
+        --main-yellow: #e2a747;
+        --main-yellow-light: #fbefdb;
+        --main-yellow-dark: #af7c05;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --main-bg: #171717;
+        --main-text: #f0f0f0;
+        
+        --main-grey-light: #2f2f2f;
+        --main-grey: #575757;
+        --main-grey-dark: #939393;
+        --main-grey-darker: #c8c8c8;
+
+        --main-blue: #1f88ea;
+        --main-blue-light: #263746;
+        --main-blue-dark: #6eb0f2;
+
+        --main-red: #ee5544;
+        --main-red-light: #4e2d2d;
+        --main-red-dark: #ff8282;
+
+        --main-green: #1abb47;
+        --main-green-light: #243d30;
+        --main-green-dark: #4cd673;
+
+        --main-yellow: #e2a747;
+        --main-yellow-light: #3a311f;
+        --main-yellow-dark: rgb(244, 191, 76);
+    }
+}
+
+/* element defaults */
+
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    line-height: var(--main-line-height);
+}
+
+body {
+    background-color: var(--main-bg);
+    color: var(--main-text);
+}
+
+a {
+    text-decoration: none;
+    color: var(--main-blue-dark);
+}
+
+a:active, a:visited {
+    color: var(--main-blue);
+}
+
+a:hover {
+    color: var(--main-blue);
+}
+
+pre, code, kbd {
+    font-family: 'Source Code Pro', monospace;
+}
+
+img:not(figure img) {
+    width: 100%;
+}
+
+footer {
+    color: var(--main-grey-dark);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+footer a {
+    text-decoration: underline;
+    color: var(--main-grey-dark);
+}
+
+footer a:hover {
+    color: var(--main-grey-darker);
+}
+
+hr {
+    border: solid 1px var(--main-grey-dark)
+}
+
+/* modifiers */
+
+.content-margin {
+    margin: 5em;
+}
+
+.block {
+    margin-bottom: 1.5em;
+    display: block;
+}
+
+.round-s {
+    border-radius: var(--main-radius-small);
+}
+
+.round-l {
+    border-radius: var(--main-radius-large);
+}
+
+/* content class */
+
+.content.medium {
+    font-size: 18px;
+}
+
+.content.large {
+    font-size: 20px;
+}
+
+.content :is(h1, h2, h3, h4, h5, h6) {
+    margin-bottom: .5em;
+    line-height: 1.15em;
+}
+
+.content :is(p, ul, ol, dl, blockquote, pre, table, figure, img) {
+    margin-bottom: 1.5em;
+}
+
+.content q {
+    font-style: italic;
+}
+
+.content :is(ul, ol) {
+    margin-left: 2em;
+}
+
+.content ol li:before {
+    content: "";
+}
+
+.content dt {
+    font-weight: bold;
+}
+
+.content dd {
+    margin-left: 1.5em;
+}
+
+.content blockquote {
+    background-color: var(--main-grey-light);
+    padding: 1em;
+    border-left: solid 5px var(--main-grey-dark);
+}
+
+.content pre {
+    background-color: var(--main-grey-light);
+    overflow: scroll;
+    padding: 1em;
+    white-space: pre-wrap;
+}
+
+.content code, kbd {
+    background-color: var(--main-grey-light);
+    padding: 0 3px;
+}
+
+.content table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.content :is(td, th) {
+    text-align: left;
+    padding: .3em;
+    border-bottom: solid 1px var(--main-grey-light);
+}
+
+.content th {
+    border-bottom: solid 2px var(--main-grey-dark);
+}
+
+.content tr:nth-child(even) {
+    background-color: var(--main-grey-light);
+}
+
+.content figure {
+    text-align: center;
+    color: var(--main-grey-dark);
+    font-style: italic;
+}
+
+/* icon class */
+
+.icon {
+    display: inline-block;
+}
+
+.icon.left {
+    margin-right: 0.5em;
+}
+
+.icon.right {
+    margin-left: 0.5em;
+}
+
+/* header class */ 
+
+.header {
+    font-size: x-large;
+    margin-bottom: 1em;
+    display: inline-block;
+}
+
+.header h2 {
+    color: var(--main-grey-dark);
+    font-size: 1em;
+}
+
+.header footer {
+    font-size: medium;
+    
+}
+
+/* callout class */
+
+.callout {
+    padding: 1em;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: solid 5px;
+}
+
+.content :is(.title, div) {
+    width: 100%;
+}
+
+.callout.is-info {
+    background-color: var(--main-blue-light);
+    border-color: var(--main-blue);
+}
+
+.callout.is-info .title {
+    color: var(--main-blue-dark);
+}
+
+.callout.is-danger {
+    background-color: var(--main-red-light);
+    border-color: var(--main-red);
+}
+
+.callout.is-danger .title {
+    color: var(--main-red-dark);
+}
+
+.callout.is-success {
+    background-color: var(--main-green-light);
+    border-color: var(--main-green);
+}
+
+.callout.is-success .title {
+    color: var(--main-green-dark);
+}
+
+.callout.is-warning {
+    background-color: var(--main-yellow-light);
+    border-color: var(--main-yellow);
+}
+
+.callout.is-warning .title {
+    color: var(--main-yellow-dark);
+}
+
+/* breadcrumb class */ 
+
+.breadcrumb {
+    margin-bottom: 1.2em;
+}
+
+.breadcrumb li, .breadcrumb a {
+    display: inline-block;
+}
+
+.breadcrumb li, .breadcrumb a, .breadcrumb a:visited, .breadcrumb a:hover i {
+    color: var(--main-grey-dark);
+}
+
+.breadcrumb a:active {
+    color: var(--main-grey-darker);
+}
+
+.breadcrumb a:hover {
+    color: var(--main-grey);
+}
+
+.breadcrumb li+li::before {
+    margin: 0px 10px;
+}
+
+.breadcrumb.style-path li+li::before {
+    content: "/\00a0";
+}
+
+.breadcrumb.style-arrow li+li::before {
+    content: ">";
+}
